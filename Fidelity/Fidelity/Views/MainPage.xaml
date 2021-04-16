@@ -22,6 +22,9 @@
                         <StackLayout Margin="10">
                             <Label Text="{Binding Nom}" FontSize="42"  
                                    FontAttributes="Bold" TextColor="Black" />
+                            <Label Text="{Binding CB}" FontSize="8"
+                                   HorizontalOptions="EndAndExpand"
+                                   TextColor="Gray" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
