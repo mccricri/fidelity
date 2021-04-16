@@ -53,8 +53,6 @@ namespace Fidelity.Views
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    Navigation.PopAsync();
-
                     _vm.NewScan((ZXing.BarcodeFormat)type, text);
                 });
             }
