@@ -1,4 +1,5 @@
 ﻿using System;
+using Fidelity.Services;
 using Fidelity.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -45,31 +46,18 @@ namespace Fidelity.Views
 
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
-            MobileBarcodeScanningOptions opt = new MobileBarcodeScanningOptions();
-            opt.AutoRotate = true;
-            opt.UseNativeScanning = true;
-
-            foreach (var item in _vm.AllFormats)
+            var sc = DependencyService.Get<IScanner>();
+            var (type,text) = await sc.ScanAsync(_vm.AllFormats);
+            
+            if (type!= null && !string.IsNullOrEmpty(text))
             {
-                opt.PossibleFormats.Add(item);
-            }
-
-            ZXingScannerPage scanPage = new ZXingScannerPage(opt);
-            scanPage.AutoFocus();
-
-            scanPage.OnScanResult += (result) =>
-            {
-                scanPage.IsScanning = false;
-
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     Navigation.PopAsync();
 
-                    _vm.NewScan(result.BarcodeFormat, result.Text);
+                    _vm.NewScan((ZXing.BarcodeFormat)type, text);
                 });
-            };
-
-            await Navigation.PushAsync(scanPage);
+            }
         }
     }
 }

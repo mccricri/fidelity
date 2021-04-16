@@ -21,6 +21,9 @@ namespace Fidelity.Droid
             
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
+            // suivant la version des fois il faut, des fois il faut pas
+            ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -31,7 +34,7 @@ namespace Fidelity.Droid
             // Dans la doc c'est pas précisé qu'il faut l'appeler 
             // https://github.com/Redth/ZXing.Net.Mobile
             //
-            //ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
