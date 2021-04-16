@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:Fidelity.Views"
+       FlyoutBehavior="Disabled"
+       BackgroundColor="{DynamicResource MyPrimary}"
+       x:Class="Fidelity.AppShell">
+
+    <ShellContent ContentTemplate="{DataTemplate views:MainPage}">
+      
+    </ShellContent>
+    
+</Shell>

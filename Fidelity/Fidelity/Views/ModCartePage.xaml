@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Titre}"
+             x:Class="Fidelity.Views.ModCartePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="saveit" Command="{Binding AddCarteCommand}" Text="Enregistrer" />
+    </ContentPage.ToolbarItems>
+    
+    <ScrollView>
+
+        <StackLayout Margin="10">
+
+            <Label Text="Nom de la carte"/>
+            <Entry Text="{Binding ModCarte.Nom}" />
+
+            <Label Text="Code barre" />
+            <StackLayout Orientation="Horizontal" >
+                <Entry Text="{Binding ModCarte.CB}" HorizontalOptions="FillAndExpand" />
+                <ImageButton Source="outline_photo_camera_24" 
+                             WidthRequest="60"
+                             HeightRequest="60"
+                             Padding="5"
+                             Clicked="Button_Clicked_1"></ImageButton>
+            </StackLayout>
+
+            <Label Text="Type de Code barre" />
+            <Picker SelectedIndex="{Binding SelectedType}" Title="Type de barcode" x:Name="TypePicker" >
+                <Picker.Items>
+                    <x:String>EAN 13 (Standard)</x:String>
+                    <x:String>QR Code</x:String>
+                    <x:String>Code 128 (Chiffre sans contrôle)</x:String>
+                    <x:String>Codabar (divers texte + chiffre)</x:String>
+                    <x:String>ITF</x:String>
+                    <x:String>EAN 8</x:String>
+                    <x:String>Data Matrix</x:String>
+                    <x:String>UPC A</x:String>
+                    <x:String>UPC EAN Extension</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center" >
+                <ImageButton Source="outline_preview_24" 
+                             WidthRequest="130" 
+                             HeightRequest="60"
+                             Padding="5"
+                             Clicked="Button_Clicked"></ImageButton>
+            </StackLayout>
+
+            <Frame x:Name="bcode">
+                <Image Source="{Binding ImageBarcodeSource}"></Image>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Fidelity manager"
+             x:Class="Fidelity.Views.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Ajouter" 
+                     Command="{Binding AddCarteCommand}" 
+                     Icon="add_icon.png" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding CardList}" 
+                  SelectedItem="{Binding SelectedCarte}" 
+                  ItemTapped="ListView_ItemTapped" 
+                  HasUnevenRows="True"  
+                  
+                  SeparatorColor="Gray" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell  >
+                        <StackLayout Margin="10">
+                            <Label Text="{Binding Nom}" FontSize="42"  
+                                   FontAttributes="Bold" TextColor="Black" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+
+</ContentPage>
