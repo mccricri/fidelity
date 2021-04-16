@@ -12,14 +12,12 @@
     <ScrollView>
         <StackLayout Spacing="10" >
             <Label x:Name="cardid" Text="{Binding ModCarte.CB}"  
-                       FontAttributes="Bold" FontSize="Large" 
-                       Rotation="90" TranslationX="-150" TranslationY="350" />
+                   Style="{StaticResource BarCodeLabelStyle}" />
 
             <Image x:Name="cardimg" 
                    Source="{Binding ImageBarcodeSource}" 
-                   Rotation="90" 
-                   TranslationX="0" 
-                   TranslationY="100" Scale="1.3" Aspect="AspectFit"></Image>
+                   Style="{StaticResource BarCodeStyle}"
+                   Aspect="AspectFit"></Image>
         </StackLayout>
     </ScrollView>
     

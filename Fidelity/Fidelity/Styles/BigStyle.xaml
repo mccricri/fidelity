@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Fidelity.BigStyle">
+
+    <Style x:Key="BarCodeLabelStyle" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="FontSize" Value="Large"></Setter>
+        <Setter Property="Rotation" Value="90"></Setter>
+        <Setter Property="TranslationX" Value="-160"></Setter>
+        <Setter Property="TranslationY" Value="480"></Setter>
+    </Style>
+
+    <Style x:Key="BarCodeStyle" TargetType="Image">
+        <Setter Property="Rotation" Value="90"></Setter>
+        <Setter Property="TranslationX" Value="10"></Setter>
+        <Setter Property="TranslationY" Value="200"></Setter>
+        <Setter Property="Scale" Value="1.4"></Setter>
+    </Style>
+    
+</ResourceDictionary>

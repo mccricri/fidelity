@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fidelity.App">
     <Application.Resources>
-        <ResourceDictionary>
+        <ResourceDictionary x:Name="AppDictionnary">
             <Color x:Key="MyPrimary">#673AB7</Color>
         </ResourceDictionary>
     </Application.Resources>
