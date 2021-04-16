@@ -21,11 +21,13 @@ namespace Fidelity.Views
             BindingContext = _vm = new ModCartePageViewModel();
         }
 
+        // Appeler que sur le bouton "physique" android
+        // !! Mais pas sur le bouton retour de la toolbar....
         protected override bool OnBackButtonPressed()
         {
             Device.BeginInvokeOnMainThread(async () => {
-                var result = await DisplayAlert("Alert!", "On enregistre pas ?", "Si", "Non");
-                if (!result) await Navigation.PopAsync(); // or anything else
+                if (await DisplayAlert("Confirm", "On oublie les modifications ?", "Oui", "Oups")) 
+                    await Navigation.PopAsync(); 
             });
 
             return true;
